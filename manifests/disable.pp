@@ -6,8 +6,8 @@
 
 # disable dbus
 class dbus::disable inherits dbus::base {
-    Service[messagebus]{
-        ensure => stopped,
-        enable => false,
-    }
+  Service['messagebus']{
+    ensure => stopped,
+    enable => false,
+  }
 }
