@@ -10,4 +10,9 @@ class dbus::base {
     hasstatus => true,
     require   => Package[dbus],
   }
+  if $::operatingsystem in ['RedHat','CentOS'] {
+    Service['messagebus']{
+      name => 'dbus'
+    }
+  }
 }
