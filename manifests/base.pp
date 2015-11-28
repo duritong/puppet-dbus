@@ -10,7 +10,7 @@ class dbus::base {
     hasstatus => true,
     require   => Package[dbus],
   }
-  if ($::operatingsystem in ['RedHat','CentOS']) and ($::operatingsystemmajrelease > 6) {
+  if ($::operatingsystem in ['RedHat','CentOS']) and versioncmp($::operatingsystemmajrelease,'6') > 0 {
     Service['messagebus']{
       name => 'dbus'
     }
